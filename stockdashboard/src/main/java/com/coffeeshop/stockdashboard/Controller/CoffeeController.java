@@ -1,5 +1,7 @@
-package com.coffeeshop.stockdashboard.coffee;
+package com.coffeeshop.stockdashboard.Controller;
 
+import com.coffeeshop.stockdashboard.Entity.Coffee;
+import com.coffeeshop.stockdashboard.Service.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +16,12 @@ public class CoffeeController {
     private final CoffeeService coffeeService;
 
     @Autowired
-    public CoffeeController(CoffeeService coffeeService) {
-        this.coffeeService = coffeeService;
+    public CoffeeController(CoffeeService service) {
+        this.coffeeService = service;
     }
 
     @GetMapping
-    public List<Coffee> getCoffee() {
-        return coffeeService.getCoffee();
+    public List<Coffee> getAllCoffee() {
+        return coffeeService.getAllCoffee();
     }
 }

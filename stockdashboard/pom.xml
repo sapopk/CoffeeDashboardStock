@@ -11,7 +11,7 @@
 	<groupId>com.coffeeshop</groupId>
 	<artifactId>stockdashboard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stockdashboard</name>
+	<name>stockDashboard</name>
 	<description>Coffee Shop Stock - Dashboard</description>
 	<properties>
 		<java.version>17</java.version>
@@ -29,18 +29,22 @@
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
+			<version>8.2.0</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 	</dependencies>
 
 	<build>
