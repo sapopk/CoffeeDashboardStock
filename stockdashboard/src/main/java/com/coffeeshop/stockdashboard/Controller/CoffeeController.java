@@ -3,25 +3,36 @@ package com.coffeeshop.stockdashboard.Controller;
 import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Service.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-@RequestMapping(path = "api/v1/coffee")
+@Controller
 public class CoffeeController {
 
+    @Autowired
     private final CoffeeService coffeeService;
 
-    @Autowired
     public CoffeeController(CoffeeService service) {
         this.coffeeService = service;
     }
 
-    @GetMapping
-    public List<Coffee> getAllCoffee() {
-        return coffeeService.getAllCoffee();
+    @GetMapping("api/v2/coffee")
+    public String getAllCoffee(Model model) {
+        List<Coffee> coffee = coffeeService.getAllCoffee();
+        model.addAttribute("coffee", coffee);
+        return "index";
     }
+
+    @GetMapping("api/v2/coffee/table")
+    public String coffeeList(Model model) {
+        List<Coffee> list = coffeeService.getAllCoffee();
+        model.addAttribute("list", list);
+        return "coffee-list";
+    }
+
 }

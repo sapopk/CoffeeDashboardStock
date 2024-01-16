@@ -1,6 +1,9 @@
 package com.coffeeshop.stockdashboard.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "coffee", schema = "coffeeshop")
@@ -15,6 +18,7 @@ public class Coffee {
     @GeneratedValue (
             strategy = GenerationType.TABLE,
             generator = "coffee_sequence"
+
     )
 
     @Column(name = "CoffeeID", nullable = false)
@@ -33,10 +37,10 @@ public class Coffee {
 
     //Constructor
     public Coffee(String coffeeBrand, String coffeeType, double coffeePrice, double coffeeQuantity) {
-        CoffeeBrand = coffeeBrand;
-        CoffeeType = coffeeType;
-        CoffeePrice = coffeePrice;
-        CoffeeQuantity = coffeeQuantity;
+        this.CoffeeBrand = coffeeBrand;
+        this.CoffeeType = coffeeType;
+        this.CoffeePrice = coffeePrice;
+        this.CoffeeQuantity = coffeeQuantity;
     }
 
     //Getters
@@ -85,12 +89,12 @@ public class Coffee {
     public String toString() {
         return
                 "Coffee{" +
-                "CoffeeID=" + CoffeeID +
-                ", CoffeeBrand='" + CoffeeBrand + '\'' +
-                ", CoffeeType='" + CoffeeType + '\'' +
-                ", CoffeePrice=" + CoffeePrice +
-                ", CoffeeQuantity=" + CoffeeQuantity +
-                '}';
+                        "CoffeeID=" + CoffeeID +
+                        ", CoffeeBrand='" + CoffeeBrand + '\'' +
+                        ", CoffeeType='" + CoffeeType + '\'' +
+                        ", CoffeePrice=" + CoffeePrice +
+                        ", CoffeeQuantity=" + CoffeeQuantity +
+                        '}';
     }
 }
 
