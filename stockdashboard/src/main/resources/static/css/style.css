@@ -47,17 +47,92 @@
 }
 
 body {
-    background-image: url("/background/gradi3d-3.jpg");
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    font-family: 'Poppins', sans-serif;
+    /* background: url("/background/gradi3d-5.jpg") no-repeat center center /cover; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center center; */
+    /* width: 100%; */
+    /* height: auto; */
+    /* font-family: 'Poppins', sans-serif; */
 }
 
-.navbar {
+.main-container  {
+    background: url("/images/background/gradi3d-5.jpg") no-repeat center center /cover;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Header Section */
+
+.navHeader {
     height: 55px;
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(17px);
-    --webkit-backdrop-filer: blur(17px);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
 }
+
+.imgSize {
+    width: 10;
+    height: 10;
+}
+
+.dropMenu {
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
+}
+
+/* End of Header Section */
+
+/* Sidebar Section */
+.sidebarNav {
+    height: 89vh;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
+}
+
+.navTabs {
+    cursor: pointer;
+}
+
+.navTabs:hover {
+    background: var(--white-RGBA);
+    border: 5px;
+    .sidebarActive {
+        filter: var(--white);
+    }
+}
+
+.navActive {
+    background: var(--isabelline-RGBA);
+}
+
+/* End of Sidebar Section */
+
+/* Main Content Section */
+.main-content {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    height: 89vh;
+}
+
+table {
+    height: 89vh;
+}
+
+.tableScrow {
+    overflow-y: scroll;
+    height: 100%;
+}
+/* End of Content Section */

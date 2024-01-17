@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--WebSite Icon -->
-    <link rel="icon" type="image/infosys-icon" href="images/favicon/infosys-icon.png">
+    <link rel="icon" type="image/infosys-icon" th:href="@{/images/icons/shop.png}">
     <!--Font-Awesome -->
     <link 
         rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -26,60 +26,115 @@
 </head>
 <body>
 
-    <div class="main-container container">
-        <section class="headerSection container-fluid">
-            <header class="navbar navbar-expand">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="main-container">
+
+        <!-- Header Section -->
+        <section class="container mt-3">
+            <header class="navbar navbar-expand-md p-2 col-12 col-md navHeader">
+                <a class="navbar-brand text-white ms-2" href="#">Coffee Shop</a>
+                <button class="navbar-toggler ms-1" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
+                      <a class="nav-link text-light" href="#">Features</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
+                      <a class="nav-link text-light" href="#">Pricing</a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <a class="nav-link text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown link
                       </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      <ul class="dropdown-menu mt-3 dropMenu">
+                        <li><a class="dropdown-item text-light" href="#">Action</a></li>
+                        <li><a class="dropdown-item text-light" href="#">Another action</a></li>
+                        <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
                       </ul>
                     </li>
                   </ul>
                 </div>
             </header>
+
+            <section class="row mt-3">
+                <!-- Sidebar Section -->
+                <div class="col-xl-3">
+                    <aside id="#sidebarMenu" class="sidebarNav">
+                        <div class="">
+                            <ul class="nav flex-column m-2">
+                                <li class="navTabs rounded-3 m-2 ps-3 p-2 navActive">
+                                    <a href="#" class="text-light lead text-decoration-none">
+                                        <img th:src="@{/images/svg-images/dash-img.svg}" alt="-image" class=""> Dashboard
+                                    </a>
+                                </li>
+                                <li class="navTabs rounded-3 m-2 ps-3 p-2">
+                                    <a href="#" class="text-light lead text-decoration-none">
+                                        <img th:src="@{/images/svg-images/add-img.svg}" alt="-image" class=""> Add up
+                                    </a>
+                                </li>
+                                <li class="navTabs rounded-3 m-2 ps-3 p-2">
+                                    <a href="#" class="text-light lead text-decoration-none">
+                                        <img th:src="@{/images/svg-images/modify-img.svg}" alt="-image" class=""> Modify
+                                    </a>
+                                </li>
+                                <li class="navTabs rounded-3 m-2 ps-3 p-2">
+                                    <a href="#" class="text-light lead text-decoration-none">
+                                        <img th:src="@{/images/svg-images/search-img.svg}" alt="-image" class=""> Search
+                                    </a>
+                                </li>
+                                <li class="navTabs rounded-3 m-2 ps-3 p-2">
+                                    <a href="#" class="text-light lead text-decoration-none">
+                                        <img th:src="@{/images/svg-images/remove-img.svg}" alt="-image" class=""> Remove
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Main Content Section -->
+                <div class="col-xl-9">
+                    <section class="main-content">
+                        <div class="tableScrow">
+                            <table class="table table-striped table-hover table-dark caption-top">
+                                <caption class="fs-3 text-white ps-1">Current in Stock</caption>
+                                <thead class="">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Brand</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Price Per KG</th>
+                                    <th class="text-center">Quantity</th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                <tr th:each="coffee : ${coffee}">
+                                    <td th:text="${coffee.coffeeID}"></td>
+                                    <td th:text="${coffee.coffeeBrand}"></td>
+                                    <td th:text="${coffee.coffeeType}"></td>
+                                    <td th:text="${coffee.coffeePrice}"></td>
+                                    <td th:text="${coffee.coffeeQuantity}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>            
+                </div>
+            </section>            
+
         </section>
-        <section class="main-content container-fluid">
-            <table>
-                <thead>
-                <tr>
-                    <th>Coffee ID</th>
-                    <th>Coffee Brand</th>
-                    <th>Coffee Type</th>
-                    <th>Coffee Price</th>
-                    <th>Coffee Quantity</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="coffee : ${coffee}">
-                    <td th:text="${coffee.coffeeID}"></td>
-                    <td th:text="${coffee.coffeeBrand}"></td>
-                    <td th:text="${coffee.coffeeType}"></td>
-                    <td th:text="${coffee.coffeePrice}"></td>
-                    <td th:text="${coffee.coffeeQuantity}"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
+
+        <!-- <div class="container mt-3"></div> -->
     </div>
 </body>
 </html>
