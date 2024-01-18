@@ -22,4 +22,9 @@ public class CoffeeService {
     public List<Coffee> getAllCoffee() {
         return coffeeRepository.findAll();
     }
+
+    // @GetMapping
+    // public List<Coffee> findCoffeeByID(Integer ID) {
+    //     return coffeeRepository.findById(ID);
+    // }
 }

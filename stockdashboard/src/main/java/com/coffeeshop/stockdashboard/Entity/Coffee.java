@@ -1,9 +1,6 @@
 package com.coffeeshop.stockdashboard.Entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "coffee", schema = "coffeeshop")

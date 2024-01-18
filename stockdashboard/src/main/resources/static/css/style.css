@@ -116,6 +116,12 @@ body {
     background: var(--isabelline-RGBA);
 }
 
+.modalSS {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
 /* End of Sidebar Section */
 
 /* Main Content Section */

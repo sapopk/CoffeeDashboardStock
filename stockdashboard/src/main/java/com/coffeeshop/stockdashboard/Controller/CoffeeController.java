@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
@@ -21,18 +20,18 @@ public class CoffeeController {
         this.coffeeService = service;
     }
 
-    @GetMapping("api/v2/coffee")
+    @GetMapping("/api/v2/coffee")
     public String getAllCoffee(Model model) {
         List<Coffee> coffee = coffeeService.getAllCoffee();
         model.addAttribute("coffee", coffee);
         return "index";
     }
 
-    @GetMapping("api/v2/coffee/table")
-    public String coffeeList(Model model) {
-        List<Coffee> list = coffeeService.getAllCoffee();
-        model.addAttribute("list", list);
-        return "coffee-list";
-    }
+    // @GetMapping("api/v2/coffee/table")
+    // public String coffeeList(Model model) {
+    //     List<Coffee> list = coffeeService.getAllCoffee();
+    //     model.addAttribute("list", list);
+    //     return "coffee-list";
+    // }
 
 }
