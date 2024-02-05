@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StockDashboardApplication<stockdashboard>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.coffeeshop.stockdashboard.StockDashboardApplication",
+            "projectName": "stockdashboard",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
