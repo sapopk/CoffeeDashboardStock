@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee List</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Coffee ID</th>
+        <th>Coffee Brand</th>
+        <th>Coffee Type</th>
+        <th>Coffee Price</th>
+        <th>Coffee Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="coffee : ${list}">
+        <td th:text="${list.coffeeID}"></td>
+        <td th:text="${list.coffeeBrand}"></td>
+        <td th:text="${list.coffeeType}"></td>
+        <td th:text="${list.coffeePrice}"></td>
+        <td th:text="${list.coffeeQuantity}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
