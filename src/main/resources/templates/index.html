@@ -1,262 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--WebSite Icon -->
-    <link rel="icon" type="image/infosys-icon" th:href="@{/images/icons/shop.png}">
-    <!--Font-Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--Bootstrap 5.2.3 CSS min-->
-    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
-    <!--Personal CSS-->
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <!--JQuery 3.7.1 min-->
-    <script defer th:src="@{/script/jquery-3.7.1.min.js}"></script>
-    <!--Bootstrap 5.2.3 JS min-->
-    <script defer th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
-    <!--Personal JS/JQuery-->
-    <script defer th:src="@{/script/script.js}"></script>
-
-    <title>Coffee Shop - Dashboard</title>
-</head>
-
+<head th:replace="~{fragment/config/config :: config}"></head>
 <body>
-
     <div class="main-container">
 
-        <!-- Header Section -->
+        <!-- Container -->
         <section class="container mt-3">
-            <header class="navbar navbar-expand-md p-2 col-12 col-md navHeader">
-                <a class="navbar-brand text-white ms-2" href="#">Coffee Shop</a>
-                <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu mt-3 dropMenu">
-                                <li><a class="dropdown-item text-light" href="#">Action</a></li>
-                                <li><a class="dropdown-item text-light" href="#">Another action</a></li>
-                                <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </header>
+            <!-- Header Section -->
+            <header th:replace="~{fragment/layout/header :: header}"></header>
 
             <section class="row mt-3">
                 <!-- Sidebar Section -->
-                <div class="col-xl-3">
-                    <aside id="#sidebarMenu" class="sidebarNav">
-                        <div class="">
-                            <ul class="nav flex-column m-2">
-                                <li class="navTabs rounded-3 m-2 ps-3 p-2 navActive">
-                                    <a href="#" class="text-light lead text-decoration-none">
-                                        <img th:src="@{/images/svg-images/dash-img.svg}" alt="-image" class="">
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
-                                    data-bs-target="#AddCoffee" data-bs-whatever="@AddCoffee">
-                                    <a href="#" class="text-light lead text-decoration-none">
-                                        <img th:src="@{/images/svg-images/add-img.svg}" alt="-image" class=""> Add Unit
-                                    </a>
-                                </li>
-                                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
-                                data-bs-target="#ModifyCoffee" data-bs-whatever="@ModifyCoffee">
-                                    <a href="#" class="text-light lead text-decoration-none">
-                                        <img th:src="@{/images/svg-images/modify-img.svg}" alt="-image" class=""> Modify
-                                    </a>
-                                </li>
-                                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
-                                data-bs-target="#SearchCoffee" data-bs-whatever="@SearchCoffee">
-                                    <a href="#" class="text-light lead text-decoration-none">
-                                        <img th:src="@{/images/svg-images/search-img.svg}" alt="-image" class=""> Search
-                                    </a>
-                                </li>
-                                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
-                                data-bs-target="#RemoveCoffee" data-bs-whatever="@RemoveCoffee">
-                                    <a href="#" class="text-light lead text-decoration-none">
-                                        <img th:src="@{/images/svg-images/remove-img.svg}" alt="-image" class=""> Remove
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
+                <div th:replace="~{fragment/layout/sidebar :: sidebar}"></div>
 
                 <!-- Main Content Section -->
-                <div class="col-xl-9">
-                    <section class="main-content">
-                        <div class="tableScrow">
-                            <table class="table table- table-hover text-bg-light caption-top">
-                                <caption class="fs-3 text-white ps-1">Current in Stock</caption>
-                                <thead class="">
-                                    <tr>
-                                        <th class="text-center">ID</th>
-                                        <th class="text-center">Brand</th>
-                                        <th class="text-center">Type</th>
-                                        <th class="text-center">Price Per KG</th>
-                                        <th class="text-center">Quantity</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                    <tr th:each="coffee : ${coffee}">
-                                        <td th:text="${coffee.coffeeID}"></td>
-                                        <td th:text="${coffee.coffeeBrand}"></td>
-                                        <td th:text="${coffee.coffeeType}"></td>
-                                        <td th:text="${coffee.coffeePrice}"></td>
-                                        <td th:text="${coffee.coffeeQuantity}"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </div>
+                <main th:replace="~{fragment/layout/main :: main}"></main>
             </section>
 
             <!-- Modal Section - Add Coffee-->
-            <section class="modal fade" id="AddCoffee" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Add New Coffee Unit</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="">
-                                <div class="input-group mb-3">
-                                    <span for="coffee-add-brand" class="input-group-text" id="inputGroup-sizing-default">Brand</span>
-                                    <input type="text" class="form-control" id="coffee-add-name">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span for="coffee-add-type" class="input-group-text" id="inputGroup-sizing-default">Type</span>
-                                    <input type="text" class="form-control" id="coffee-add-type">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span for="coffee-add-price" class="input-group-text" id="inputGroup-sizing-default">Price</span>
-                                    <input type="text" class="form-control" id="coffee-add-price">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span for="coffee-add-quantity" class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
-                                    <input type="text" class="form-control" id="coffee-add-quantity">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Add Coffee</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section th:replace="~{fragment/modal/modalAddCoffee :: modalAddCoffee}"></section>
 
             <!-- Modal Section - Modify -->
-            <section class="modal fade" id="ModifyCoffee" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Modify Coffee by ID</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="">
-                                <div class="input-group mb-3">
-                                    <span for="coffee-modify-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                                    <input type="text" class="form-control" id="coffee-modify-id">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span for="coffee-modify-name" class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                                    <input type="text" class="form-control" id="coffee-modify-name">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Modify Coffee</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section th:replace="~{fragment/modal/modalModifyCoffee :: modalModifyCoffee}"></section>
 
             <!-- Modal Section - Search -->
-            <section class="modal fade" id="SearchCoffee" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Search Coffee by ID or Name</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="">
-                                <div class="input-group mb-3">
-                                    <span for="coffee-search-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                                    <input type="text" class="form-control" id="coffee-search-id">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span for="coffee-search-name" class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                                    <input type="text" class="form-control" id="coffee-search-name">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Search Coffee</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section th:replace="~{fragment/modal/modalSearchCoffee :: modalSearchCoffee}"></section>
 
             <!-- Modal Section - Remove -->
-            <section class="modal fade" id="RemoveCoffee" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Remove Coffee by ID</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="">
-                                <div class="input-group mb-3">
-                                    <span for="coffee-remove-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                                    <input type="text" class="form-control" id="coffee-remove-id">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Remove Coffee</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section th:replace="~{fragment/modal/modalRemoveCoffee :: modalRemoveCoffee}"></section>
         </section>
     </div>
 </body>
-
 </html>

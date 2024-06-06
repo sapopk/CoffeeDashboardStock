@@ -4,7 +4,6 @@ import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -18,13 +17,11 @@ public class CoffeeService {
         this.coffeeRepository = repository;
     }
 
-    @GetMapping
     public List<Coffee> getAllCoffee() {
         return coffeeRepository.findAll();
     }
 
-    // @GetMapping
-    // public List<Coffee> findCoffeeByID(Integer ID) {
-    //     return coffeeRepository.findById(ID);
-    // }
+    public Coffee saveNewCoffee(Coffee coffee) {
+        return coffeeRepository.save(coffee);
+    }
 }

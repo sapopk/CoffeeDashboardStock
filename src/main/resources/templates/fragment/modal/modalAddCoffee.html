@@ -1,0 +1,40 @@
+<!-- Modal Section - Add Coffee - Fragment -->
+
+<section 
+    th:fragment="modalAddCoffee"
+    class="modal fade" 
+    id="AddCoffee">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Add New Coffee Unit</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/addCoffee}" th:object="${coffee}" method="POST">
+                    <div class="input-group mb-3">
+                        <span for="coffee-add-brand" class="input-group-text" id="coffee-add-brand">Brand</span>
+                        <input type="text" th:field="*{coffeeBrand}" id="coffee-add-brand" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span for="coffee-add-type" class="input-group-text" id="coffee-add-type">Type</span>
+                        <input type="text" th:field="*{coffeeType}" id="coffee-add-type" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span for="coffee-add-price" class="input-group-text" id="coffee-add-price">Price</span>
+                        <input type="text" th:field="*{coffeePrice}" id="coffee-add-price" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span for="coffee-add-quantity" class="input-group-text" id="coffee-add-quantity">Quantity</span>
+                        <input type="text" th:field="*{coffeeQuantity}" id="coffee-add-quantity" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Add Coffee</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</section>

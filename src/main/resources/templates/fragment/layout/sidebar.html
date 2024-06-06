@@ -1,0 +1,39 @@
+<!-- Sidebar Section - Fragment -->
+<div th:fragment="sidebar" class="col-xl-3">
+    <aside id="#sidebarMenu" class="sidebarNav">
+        <div class="">
+            <ul class="nav flex-column m-2">
+                <li class="navTabs rounded-3 m-2 ps-3 p-2 navActive">
+                    <a href="#" class="text-light lead text-decoration-none">
+                        <img th:src="@{/images/svg-images/dash-img.svg}" alt="-image" class="">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
+                    data-bs-target="#AddCoffee" data-bs-whatever="@AddCoffee">
+                    <a href="#" class="text-light lead text-decoration-none">
+                        <img th:src="@{/images/svg-images/add-img.svg}" alt="-image" class=""> Add Unit
+                    </a>
+                </li>
+                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
+                data-bs-target="#ModifyCoffee" data-bs-whatever="@ModifyCoffee">
+                    <a href="#" class="text-light lead text-decoration-none">
+                        <img th:src="@{/images/svg-images/modify-img.svg}" alt="-image" class=""> Modify
+                    </a>
+                </li>
+                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
+                data-bs-target="#SearchCoffee" data-bs-whatever="@SearchCoffee">
+                    <a href="#" class="text-light lead text-decoration-none">
+                        <img th:src="@{/images/svg-images/search-img.svg}" alt="-image" class=""> Search
+                    </a>
+                </li>
+                <li class="navTabs rounded-3 m-2 ps-3 p-2" data-bs-toggle="modal"
+                data-bs-target="#RemoveCoffee" data-bs-whatever="@RemoveCoffee">
+                    <a href="#" class="text-light lead text-decoration-none">
+                        <img th:src="@{/images/svg-images/remove-img.svg}" alt="-image" class=""> Remove
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>

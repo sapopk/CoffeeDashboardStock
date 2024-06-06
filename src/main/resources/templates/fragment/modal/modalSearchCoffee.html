@@ -1,0 +1,33 @@
+<!-- Modal Section - Search Coffee - Fragment -->
+
+<section 
+    th:fragment="modalSearchCoffee" 
+    class="modal fade" 
+    id="SearchCoffee">
+    
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Search Coffee by ID or Name</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="">
+                    <div class="input-group mb-3">
+                        <span for="coffee-search-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                        <input type="text" class="form-control" id="coffee-search-id">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span for="coffee-search-name" class="input-group-text"
+                            id="inputGroup-sizing-default">Name</span>
+                        <input type="text" class="form-control" id="coffee-search-name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Search Coffee</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</section>

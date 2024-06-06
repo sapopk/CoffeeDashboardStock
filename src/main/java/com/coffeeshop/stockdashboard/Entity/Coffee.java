@@ -19,80 +19,78 @@ public class Coffee {
     )
 
     @Column(name = "CoffeeID", nullable = false)
-    private int CoffeeID;
+    private int coffeeID;
     @Column(name = "coffee_brand", nullable = false)
-    private String CoffeeBrand;
+    private String coffeeBrand;
     @Column(name = "coffee_type", nullable = false)
-    private String CoffeeType;
+    private String coffeeType;
     @Column(name = "coffee_price", nullable = false)
-    private double CoffeePrice;
+    private double coffeePrice;
     @Column(name = "coffee_quantity", nullable = false)
-    private double CoffeeQuantity;
+    private double coffeeQuantity;
 
     //Overload Constructor
     public Coffee() {}
 
     //Constructor
-    public Coffee(String coffeeBrand, String coffeeType, double coffeePrice, double coffeeQuantity) {
-        this.CoffeeBrand = coffeeBrand;
-        this.CoffeeType = coffeeType;
-        this.CoffeePrice = coffeePrice;
-        this.CoffeeQuantity = coffeeQuantity;
+    public Coffee(String coffeeBrandC, String coffeeTypeC, double coffeePriceC, double coffeeQuantityC) {
+        this.coffeeBrand = coffeeBrandC;
+        this.coffeeType = coffeeTypeC;
+        this.coffeePrice = coffeePriceC;
+        this.coffeeQuantity = coffeeQuantityC;
     }
 
     //Getters
     public int getCoffeeID() {
-        return CoffeeID;
+        return coffeeID;
     }
 
     public String getCoffeeBrand() {
-        return CoffeeBrand;
+        return coffeeBrand;
     }
 
     public String getCoffeeType() {
-        return CoffeeType;
+        return coffeeType;
     }
 
     public double getCoffeePrice() {
-        return CoffeePrice;
+        return coffeePrice;
     }
 
     public double getCoffeeQuantity() {
-        return CoffeeQuantity;
+        return coffeeQuantity;
     }
 
     //Setters
-    public void setCoffeeID(int coffeeID) {
-        CoffeeID = coffeeID;
+    public void setCoffeeID(int id) {
+        coffeeID = id;
     }
 
-    public void setCoffeeBrand(String coffeeBrand) {
-        CoffeeBrand = coffeeBrand;
+    public void setCoffeeBrand(String brand) {
+        coffeeBrand = brand;
     }
 
-    public void setCoffeeType(String coffeeType) {
-        CoffeeType = coffeeType;
+    public void setCoffeeType(String type) {
+        coffeeType = type;
     }
 
-    public void setCoffeePrice(double coffeePrice) {
-        CoffeePrice = coffeePrice;
+    public void setCoffeePrice(double price) {
+        coffeePrice = price;
     }
 
-    public void setCoffeeQuantity(double coffeeQuantity) {
-        CoffeeQuantity = coffeeQuantity;
+    public void setCoffeeQuantity(double quantity) {
+        coffeeQuantity = quantity;
     }
 
     @Override
     public String toString() {
         return
                 "Coffee{" +
-                        "CoffeeID=" + CoffeeID +
-                        ", CoffeeBrand='" + CoffeeBrand + '\'' +
-                        ", CoffeeType='" + CoffeeType + '\'' +
-                        ", CoffeePrice=" + CoffeePrice +
-                        ", CoffeeQuantity=" + CoffeeQuantity +
+                        "CoffeeID=" + coffeeID +
+                        ", CoffeeBrand='" + coffeeBrand + '\'' +
+                        ", CoffeeType='" + coffeeType + '\'' +
+                        ", CoffeePrice=" + coffeePrice +
+                        ", CoffeeQuantity=" + coffeeQuantity +
                         '}';
     }
 }
-
-

@@ -19,3 +19,8 @@ spring:
 
   application:
     name: USER-SERVICE
+
+  logging:
+    level:
+      org.thymeleaf: DEBUG
+      org.thymeleaf.TemplateEngine: TRACE
