@@ -1,28 +1,25 @@
 <!-- Modal Section - Remove Coffee - Fragment -->
 
-<section 
-    th:fragment="modalRemoveCoffee" 
-    class="modal fade" 
-    id="RemoveCoffee">
-    
+<section th:fragment="modalRemoveCoffee" class="modal fade" id="RemoveCoffee">
+
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Remove Coffee by ID</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form class="">
+            <form class="" action="/removeCoffee" method="POST">
+                <div class="modal-body">
                     <div class="input-group mb-3">
                         <span for="coffee-remove-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                        <input type="text" class="form-control" id="coffee-remove-id">
+                        <input type="text" name="coffeeID" class="form-control" id="coffee-remove-id">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Remove Coffee</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Remove Coffee</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>

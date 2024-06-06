@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class CoffeeController {
     @PostMapping("/addCoffee")
     public String addNewCoffee(@ModelAttribute Coffee newCoffee) {
         coffeeService.saveNewCoffee(newCoffee);
+        return "redirect:/api/coffee";
+    }
+
+    @PostMapping("/removeCoffee")
+    public String removeCoffee(@PathVariable int coffeeID) {
+        coffeeService.removeCoffee(coffeeID);
         return "redirect:/api/coffee";
     }
 }

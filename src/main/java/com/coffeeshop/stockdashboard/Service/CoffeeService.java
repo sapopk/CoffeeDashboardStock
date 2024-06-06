@@ -2,6 +2,9 @@ package com.coffeeshop.stockdashboard.Service;
 
 import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +26,11 @@ public class CoffeeService {
 
     public Coffee saveNewCoffee(Coffee coffee) {
         return coffeeRepository.save(coffee);
+    }
+
+    public void removeCoffee(int coffeeID) {
+        Coffee removeCoffee = new Coffee();
+        removeCoffee.setCoffeeID(coffeeID);
+        coffeeRepository.deleteById(removeCoffee);
     }
 }
