@@ -17,7 +17,7 @@ public class CoffeeService {
         this.coffeeRepository = repository;
     }
 
-    public List<Coffee> getAllCoffee() {
+    public List<Coffee> getAllCoffees() {
         return coffeeRepository.findAll();
     }
 
