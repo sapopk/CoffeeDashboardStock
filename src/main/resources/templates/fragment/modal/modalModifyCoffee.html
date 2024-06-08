@@ -1,18 +1,15 @@
 <!-- Modal Section - Modify Coffee - Fragment-->
 
-<section 
-    th:fragment="modalModifyCoffee" 
-    class="modal fade" 
-    id="ModifyCoffee">
-    
+<section th:fragment="modalModifyCoffee" class="modal fade" id="ModifyCoffee">
+
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Modify Coffee by ID</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form ction="/modifyCoffee" method="POST">
+            <form action="/modifyCoffee" method="POST">
+                <div class="modal-body">
                     <div class="input-group mb-3">
                         <span for="coffee-modify-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
                         <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control">
@@ -34,12 +31,12 @@
                             id="coffee-add-quantity">Quantity</span>
                         <input type="text" name="coffeeQuantity" id="coffee-add-quantity" class="form-control">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Modify Coffee</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Modify Coffee</button>
+                    <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>

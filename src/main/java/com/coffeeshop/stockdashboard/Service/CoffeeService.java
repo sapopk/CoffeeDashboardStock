@@ -30,7 +30,14 @@ public class CoffeeService {
         coffeeRepository.deleteById(coffeeID);
     }
 
-    // public Coffee updateCoffee(Coffee coffee) {
-    //     return null;
-    // }
+    public Coffee updateCoffee(Coffee coffee) {
+        int coffeeID = coffee.getCoffeeID();
+        Coffee upCoffee = coffeeRepository.findById(coffeeID).orElseThrow(() -> new RuntimeException("Coffee not found"));
+        upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());
+        upCoffee.setCoffeeType(coffee.getCoffeeType());
+        upCoffee.setCoffeePrice(coffee.getCoffeePrice());
+        upCoffee.setCoffeeQuantity(coffee.getCoffeeQuantity());
+        
+        return coffeeRepository.save(upCoffee);
+    }
 }

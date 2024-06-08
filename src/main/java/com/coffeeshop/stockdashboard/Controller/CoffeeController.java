@@ -43,8 +43,9 @@ public class CoffeeController {
         return redirectIndex;
     }
 
-    // @PostMapping("/modifyCoffee")
-    // public String modifyCoffee(Coffee coffee) {
-    //     return redirectIndex;
-    // }  
+    @PostMapping("/modifyCoffee")
+    public String modifyCoffee(Coffee coffee) {
+        coffeeService.updateCoffee(coffee);
+        return redirectIndex;
+    }  
 }
