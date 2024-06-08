@@ -4,20 +4,20 @@
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Remove Coffee by ID</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header border-0">
+                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Remove Coffee by ID</h1>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form class="" action="/removeCoffee" method="POST">
                 <div class="modal-body">
                     <div class="input-group mb-3">
-                        <span for="coffee-remove-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                        <input type="text" name="coffeeID" class="form-control" id="coffee-remove-id">
+                        <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg" id="inputGroup-sizing-default">ID</span>
+                        <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Remove Coffee</button>
-                    <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <div class="modal-footer border-0">
+                    <button type="submit" class="btn w-50 modalBtnYes">Remove Coffee</button>
+                    <button type="button" class="btn w-25 modalBtnCancel" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
         </div>

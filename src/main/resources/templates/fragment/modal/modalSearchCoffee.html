@@ -7,26 +7,25 @@
     
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Search Coffee by ID or Name</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header border-0">
+                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Search Coffee by ID or Name</h1>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form class="">
                     <div class="input-group mb-3">
-                        <span for="coffee-search-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
-                        <input type="text" class="form-control" id="coffee-search-id">
+                        <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg" id="inputGroup-sizing-default">ID</span>
+                        <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control">
                     </div>
                     <div class="input-group mb-3">
-                        <span for="coffee-search-name" class="input-group-text"
-                            id="inputGroup-sizing-default">Name</span>
-                        <input type="text" class="form-control" id="coffee-search-name">
+                        <span for="coffee-add-brand" class="input-group-text w-25 text-white inputBg" id="coffee-add-brand">Brand</span>
+                        <input type="text" name="coffeeBrand" id="coffee-add-brand" class="form-control border">
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Search Coffee</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <div class="modal-footer border-0">
+                <button type="submit" class="btn w-50 modalBtnYes">Search Coffee</button>
+                <button type="button" class="btn w-25 modalBtnCancel" data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

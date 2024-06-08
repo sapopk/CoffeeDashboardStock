@@ -4,37 +4,37 @@
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5 text-black-50" id="exampleModalLabel">Modify Coffee by ID</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header border-0">
+                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Modify Coffee by ID</h1>
+                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/modifyCoffee" method="POST">
                 <div class="modal-body">
                     <div class="input-group mb-3">
-                        <span for="coffee-modify-id" class="input-group-text" id="inputGroup-sizing-default">ID</span>
+                        <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg" id="inputGroup-sizing-default">ID</span>
                         <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control">
                     </div>
                     <div class="input-group mb-3">
-                        <span for="coffee-add-brand" class="input-group-text" id="coffee-add-brand">Brand</span>
-                        <input type="text" name="coffeeBrand" id="coffee-add-brand" class="form-control">
+                        <span for="coffee-add-brand" class="input-group-text w-25 text-white inputBg" id="coffee-add-brand">Brand</span>
+                        <input type="text" name="coffeeBrand" id="coffee-add-brand" class="form-control border">
                     </div>
                     <div class="input-group mb-3">
-                        <span for="coffee-add-type" class="input-group-text" id="coffee-add-type">Type</span>
+                        <span for="coffee-add-type" class="input-group-text w-25 text-white inputBg" id="coffee-add-type">Type</span>
                         <input type="text" name="coffeeType" id="coffee-add-type" class="form-control">
                     </div>
                     <div class="input-group mb-3">
-                        <span for="coffee-add-price" class="input-group-text" id="coffee-add-price">Price</span>
+                        <span for="coffee-add-price" class="input-group-text w-25 text-white inputBg" id="coffee-add-price">Price</span>
                         <input type="text" name="coffeePrice" id="coffee-add-price" class="form-control">
                     </div>
                     <div class="input-group mb-3">
-                        <span for="coffee-add-quantity" class="input-group-text"
+                        <span for="coffee-add-quantity" class="input-group-text w-25 text-white inputBg"
                             id="coffee-add-quantity">Quantity</span>
                         <input type="text" name="coffeeQuantity" id="coffee-add-quantity" class="form-control">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Modify Coffee</button>
-                    <button type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <div class="modal-footer border-0">
+                    <button type="submit" class="btn w-50 modalBtnYes">Modify Coffee</button>
+                    <button type="button" class="btn w-25 modalBtnCancel" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
         </div>

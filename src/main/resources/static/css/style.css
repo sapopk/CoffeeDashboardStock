@@ -128,3 +128,42 @@ table {
     height: 100%;
 }
 /* End of Content Section */
+
+/* Modal - Section */
+
+.modal-content {
+    background: var(--black-modal);
+    border-radius: 5px;
+    box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
+}
+
+.inputBg {
+    background: var(--black-modal);
+    transition: .4s;
+}
+
+.modalBtnYes {
+    background: var(--white);
+    color: var(--purple);
+}
+
+.modalBtnYes:hover {
+    background: var(--purple);
+    color: var(--white);
+    transition: .4s;
+}
+.modalBtnCancel {
+    background: #53535300;
+    color: white;
+}
+
+.modalBtnCancel {
+    border: 1px solid var(--white);
+    color: white;
+    transition: .4s;
+}
+
+.modalBtnCancel:hover {
+    background: #3a3a3a;
+    color: white;
+}
