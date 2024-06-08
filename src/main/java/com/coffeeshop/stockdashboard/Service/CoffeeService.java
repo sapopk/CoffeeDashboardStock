@@ -22,11 +22,15 @@ public class CoffeeService {
         return coffeeRepository.findAll();
     }
 
-    public Coffee saveNewCoffee(Coffee coffee) {
+    public Coffee createNewCoffee(Coffee coffee) {
         return coffeeRepository.save(coffee);
     }
 
     public void deleteCoffee(Integer coffeeID) {
         coffeeRepository.deleteById(coffeeID);
     }
+
+    // public Coffee updateCoffee(Coffee coffee) {
+    //     return null;
+    // }
 }

@@ -33,7 +33,7 @@ public class CoffeeController {
 
     @PostMapping("/addCoffee")
     public String addNewCoffee(@ModelAttribute Coffee newCoffee) {
-        coffeeService.saveNewCoffee(newCoffee);
+        coffeeService.createNewCoffee(newCoffee);
         return redirectIndex;
     }
 
@@ -42,4 +42,9 @@ public class CoffeeController {
         coffeeService.deleteCoffee(coffeeID);
         return redirectIndex;
     }
+
+    // @PostMapping("/modifyCoffee")
+    // public String modifyCoffee(Coffee coffee) {
+    //     return redirectIndex;
+    // }  
 }

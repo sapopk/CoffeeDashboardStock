@@ -1,9 +1,9 @@
 <!-- Main Content - Fragment -->
 <main th:fragment="main" class="col-xl-9">
     <section class="main-content">
+        <h1 class="fs-3 ps-1 text-center text-uppercase fs-3 py-3 mainHeader">Current in Stock</h1>
         <div class="tableScrow">
             <table class="table table-striped table-hover caption-top">
-                <caption class="fs-3 text-white ps-1">Current in Stock</caption>
                 <thead class="">
                     <tr>
                         <th class="text-center text-white">ID</th>
@@ -11,6 +11,7 @@
                         <th class="text-center text-white">Type</th>
                         <th class="text-center text-white">Price Per KG</th>
                         <th class="text-center text-white">Quantity</th>
+                        <th class="text-center text-white">Modify Coffee</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -20,6 +21,11 @@
                         <td class="text-white" th:text="${coffee.coffeeType}"></td>
                         <td class="text-white" th:text="${coffee.coffeePrice}"></td>
                         <td class="text-white" th:text="${coffee.coffeeQuantity}"></td>
+                        <td class="">
+                            <a href="" class="text-white text-decoration-none">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

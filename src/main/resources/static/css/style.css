@@ -1,44 +1,16 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
 /* CSS HEX */
+--black: #121212;
 --white: #ffffffff;
---platinum: #dcdcdcff;
---cambridge-blue: #9bbcb3ff;
---light-blue: #a6c4caff;
---isabelline: #f2f2ecff;
-
-/* CSS HSL */
---white: hsla(0, 0%, 100%, 1);
---platinum: hsla(0, 0%, 86%, 1);
---cambridge-blue: hsla(164, 20%, 67%, 1);
---light-blue: hsla(190, 25%, 72%, 1);
---isabelline: hsla(60, 19%, 94%, 1);
-
-/* CSS RGBA BLUR */
---white-RGBA: rgba(255, 255, 255, 0.5);
---platinum-RGBA: rgba(219, 219, 219, 0.5);
---cambridge-blue-RGBA: rgba(154, 188, 179, 0.5);
---light-blue-RGBA: rgba(166, 196, 201, 0.5);
---isabelline-RGBA: rgba(243, 243, 237, 0.5);
+--purple: #4a3d7b;
+--black-modal: #121212;
+--black-bg: #171717;
 
 /* CSS FILTERS */
---white-filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(358deg) brightness(102%) contrast(102%);
---platinum-filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(4%) hue-rotate(152deg) brightness(114%) contrast(73%);
---light--filter: brightness(0) saturate(100%) invert(81%) sepia(12%) saturate(430%) hue-rotate(113deg) brightness(88%) contrast(89%);
---isabellinefilter: brightness(0) saturate(100%) invert(95%) sepia(11%) saturate(327%) hue-rotate(359deg) brightness(111%) contrast(90%);
-
-/* CSS Gradient */
---gradient-top: linear-gradient(0deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-right: linear-gradient(90deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-bottom: linear-gradient(180deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-left: linear-gradient(270deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-top-right: linear-gradient(45deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-top-left: linear-gradient(225deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-bottom-right: linear-gradient(135deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-bottom-left: linear-gradient(315deg, #ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
---gradient-radial: radial-gradient(#ffffffff, #dcdcdcff, #9bbcb3ff, #a6c4caff, #f2f2ecff);
+--white-filter: brightness(0) saturate(100%) invert(93%) sepia(12%) saturate(138%) hue-rotate(178deg) brightness(93%) contrast(90%);
+--purple-filter: brightness(0) saturate(100%) invert(23%) sepia(7%) saturate(5759%) hue-rotate(213deg) brightness(97%) contrast(86%);
 }
 
 * {
@@ -47,17 +19,11 @@
 }
 
 body {
-    /* background: url("/background/gradi3d-5.jpg") no-repeat center center /cover; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* background-position: center center; */
-    /* width: 100%; */
-    /* height: auto; */
-    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .main-container  {
-    background: url("/images/background/gradi3d-5.jpg") no-repeat center center /cover;
+    background-color: var(--black-bg);
     flex-wrap: nowrap;
     min-height: 100vh;
     max-height: 100vh;
@@ -67,70 +33,90 @@ body {
 }
 
 /* Header Section */
-
 .navHeader {
     height: 55px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
+    background: var(--black-modal);
     border-radius: 5px;
+    box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
 }
 
 .imgSize {
     width: 10;
     height: 10;
 }
-
-.dropMenu {
-    position: relative;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 5px;
-}
-
 /* End of Header Section */
 
 /* Sidebar Section */
 .sidebarNav {
     height: 89vh;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
+    background: var(--black-modal);
     border-radius: 5px;
+    box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
 }
 
 .navTabs {
     cursor: pointer;
+    transition: .3s;
 }
 
 .navTabs:hover {
-    background: var(--white-RGBA);
+    background: var(--white);
     border: 5px;
     .sidebarActive {
         filter: var(--white);
     }
 }
 
-.navActive {
-    background: var(--isabelline-RGBA);
+.navLink {
+    color: var(--white);
+    font-weight: 400;
+    transition: .4s;
 }
 
-.modalSS {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
+.navTabs:hover .navLink {
+    color: var(--purple);
+}
+
+.iconColor {
+    filter: var(--white-filter);
+    transition: .4s;
+}
+
+.navTabs:hover .iconColor {
+    filter: var(--purple-filter);
+}
+
+.navActive {
+    background: var(--white);
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.navLinkActive {
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.iconActive {
+    filter: var(--purple-filter);
+    font-weight: bold;
 }
 
 /* End of Sidebar Section */
 
 /* Main Content Section */
 .main-content {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 5px;
     height: 89vh;
+    background: var(--black-modal);
+    border-radius: 5px;
+    box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
+}
+
+.mainHeader {
+    color: var(--purple);
+}
+.mainHeader:hover {
+    color: var(--purple);
 }
 
 table {
