@@ -1,34 +1,19 @@
 <!-- Main Content - Fragment -->
 <main th:fragment="main" class="col-xl-9">
-    <section class="main-content">
-        <h1 class="fs-3 ps-1 text-center text-uppercase fs-3 py-3 mainHeader">Current in Stock</h1>
-        <div class="tableScrow">
-            <table class="table table-striped table-hover caption-top">
-                <thead class="">
-                    <tr>
-                        <th class="text-center text-white">ID</th>
-                        <th class="text-center text-white">Brand</th>
-                        <th class="text-center text-white">Type</th>
-                        <th class="text-center text-white">Price Per KG</th>
-                        <th class="text-center text-white">Quantity</th>
-                        <th class="text-center text-white">Modify Coffee</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center">
-                    <tr th:each="coffee : ${coffees}">
-                        <td class="text-white" th:text="${coffee.coffeeID}"></td>
-                        <td class="text-white" th:text="${coffee.coffeeBrand}"></td>
-                        <td class="text-white" th:text="${coffee.coffeeType}"></td>
-                        <td class="text-white" th:text="${coffee.coffeePrice}"></td>
-                        <td class="text-white" th:text="${coffee.coffeeQuantity}"></td>
-                        <td class="">
-                            <a href="" class="text-white text-decoration-none">
-                                <i class="fa-regular fa-pen-to-square"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="main-content py-1 text-center">
+        <h1 class="fs-3 mt-2 text-uppercase mainHeader">Current in Stock</h1>
+    </div>
+    <div class="row mt-2 mx-0 gap-2 justify-content-center">
+        <div th:each="coffee : ${coffees}" class="card col-3">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${coffee.coffeeBrand}"></h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${coffee.coffeeType}"></h6>
+                <p class="card-text" th:text="${coffee.coffeeQuantity}"></p>
+                <p class="card-text" th:text="${coffee.coffeePrice}"></p>
+                <p class="card-text" th:text="${coffee.coffeeID}"></p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
         </div>
-    </section>
+    </div>
 </main>

@@ -6,7 +6,7 @@
 --white: #ffffffff;
 --purple: #4a3d7b;
 --black-modal: #121212;
---black-bg: #171717;
+--black-bg: #202020;
 
 /* CSS FILTERS */
 --white-filter: brightness(0) saturate(100%) invert(93%) sepia(12%) saturate(138%) hue-rotate(178deg) brightness(93%) contrast(90%);
@@ -56,7 +56,7 @@ body {
 
 .navTabs {
     cursor: pointer;
-    transition: .3s;
+    transition: .3s ;
 }
 
 .navTabs:hover {
@@ -70,7 +70,7 @@ body {
 .navLink {
     color: var(--white);
     font-weight: 400;
-    transition: .4s;
+    transition: .4s ;
 }
 
 .navTabs:hover .navLink {
@@ -79,7 +79,7 @@ body {
 
 .iconColor {
     filter: var(--white-filter);
-    transition: .4s;
+    transition: .4s ;
 }
 
 .navTabs:hover .iconColor {
@@ -106,7 +106,7 @@ body {
 
 /* Main Content Section */
 .main-content {
-    height: 89vh;
+    /* height: 89vh; */
     background: var(--black-modal);
     border-radius: 5px;
     box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
@@ -115,7 +115,7 @@ body {
 .mainHeader {
     color: var(--purple);
 }
-.mainHeader:hover {
+.mainHeader:hover { 
     color: var(--purple);
 }
 
@@ -130,16 +130,16 @@ table {
 /* End of Content Section */
 
 /* Modal - Section */
-
 .modal-content {
     background: var(--black-modal);
     border-radius: 5px;
-    box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 2px 0px, rgba(255, 255, 255, 0.1) 0px 2px 6px 2px;
+    transition: .4s ;
 }
 
 .inputBg {
     background: var(--black-modal);
-    transition: .4s;
+    transition: .4s ;
 }
 
 .modalBtnYes {
@@ -167,3 +167,18 @@ table {
     background: #3a3a3a;
     color: white;
 }
+/* Modal - End of Section */
+.card {
+    background: var(--black-modal);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px, rgba(0, 0, 0, 0.1) 0px 2px 6px 2px;
+}
+
+.card-title {
+    color: var(--purple);
+}
+
+.card-text {
+    color: var(--white);
+}
+/* Card - Section */
