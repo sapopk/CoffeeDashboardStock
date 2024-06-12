@@ -13,11 +13,6 @@
 --purple-filter: brightness(0) saturate(100%) invert(23%) sepia(7%) saturate(5759%) hue-rotate(213deg) brightness(97%) contrast(86%);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -48,7 +43,7 @@ body {
 
 /* Sidebar Section */
 .sidebarNav {
-    height: 89vh;
+    height: 90vh;
     background: var(--black-modal);
     border-radius: 5px;
     box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
@@ -106,7 +101,6 @@ body {
 
 /* Main Content Section */
 .main-content {
-    /* height: 89vh; */
     background: var(--black-modal);
     border-radius: 5px;
     box-shadow: rgb(0, 0, 0, .2) 0px 1px 2px 0px, rgb(0, 0, 0, .2) 0px 2px 6px 2px;
@@ -119,14 +113,6 @@ body {
     color: var(--purple);
 }
 
-table {
-    height: 89vh;
-}
-
-.tableScrow {
-    overflow-y: scroll;
-    height: 100%;
-}
 /* End of Content Section */
 
 /* Modal - Section */
@@ -168,6 +154,16 @@ table {
     color: white;
 }
 /* Modal - End of Section */
+
+.cardScrow::-webkit-scrollbar {
+    display: none;
+}
+
+.cardScrow {
+    height: 785px;
+    overflow-y: scroll;
+}
+
 .card {
     background: var(--black-modal);
     border-radius: 5px;
@@ -175,7 +171,7 @@ table {
 }
 
 .card-title {
-    color: var(--purple);
+    color: var(--white);
 }
 
 .card-text {

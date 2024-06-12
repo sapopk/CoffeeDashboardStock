@@ -1,18 +1,47 @@
 <!-- Main Content - Fragment -->
-<main th:fragment="main" class="col-xl-9">
+<main th:fragment="main" class="col-xl-9" style="height: 100vh;">
     <div class="main-content py-1 text-center">
         <h1 class="fs-3 mt-2 text-uppercase mainHeader">Current in Stock</h1>
     </div>
-    <div class="row mt-2 mx-0 gap-2 justify-content-center">
-        <div th:each="coffee : ${coffees}" class="card col-3">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${coffee.coffeeBrand}"></h5>
-                <h6 class="card-subtitle mb-2 text-muted" th:text="${coffee.coffeeType}"></h6>
-                <p class="card-text" th:text="${coffee.coffeeQuantity}"></p>
-                <p class="card-text" th:text="${coffee.coffeePrice}"></p>
-                <p class="card-text" th:text="${coffee.coffeeID}"></p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+    <div class="mt-2 cardScrow">
+        <div class="row g-2">
+            <div th:each="coffee : ${coffees}" class="col-3">
+                <div class="card">
+                    <img src="../images/coffee_logos/Cafe_Pele.png" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <div class="float-end" style="margin-top: -2rem;">
+                            <a class="btn btn-sm bg-opacity-75 bg-light">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                            <a class="btn btn-sm bg-opacity-75 bg-light">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-10">
+                                <h5 class="card-title fw-lighter mt-2" th:text="${coffee.coffeeBrand}"></h5>
+                            </div>
+                            <div class="col-2 align-content-center">
+                                <p class="card-text float-end" th:text="${coffee.coffeeID}"></p>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle text-muted" th:text="${coffee.coffeeType}"></h6>
+                        <div class="row mt-3">
+                            <div class="col-6 d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-mug-hot"></i>
+                                <span class="ms-1">
+                                    <p class="text-light" th:text="${coffee.coffeeQuantity}"></p>
+                                </span>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center mt-2">
+                                <i class="fa-solid fa-dollar-sign pt-1 iconTt"></i>
+                                <span class="ms-1">
+                                    <p class="text-light " th:text="${coffee.coffeePrice}"></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
