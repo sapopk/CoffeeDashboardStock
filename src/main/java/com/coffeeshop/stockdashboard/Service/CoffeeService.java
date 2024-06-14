@@ -2,9 +2,8 @@ package com.coffeeshop.stockdashboard.Service;
 
 import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
