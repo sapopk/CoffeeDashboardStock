@@ -2,7 +2,7 @@ package com.coffeeshop.stockdashboard.Config;
 
 import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
-import org.springframework.boot .CommandLineRunner;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

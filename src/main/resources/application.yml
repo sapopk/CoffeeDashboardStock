@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/coffeeshop
-    username: root
-    password: Hakuna21@
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/coffeeshop #your db address
+    username: root #your db username
+    password: Hakuna21@ #your db password (if applicable)
+    driver-class-name: com.mysql.cj.jdbc.Driver #your db driver (mysql, postgresql etc)
   thymeleaf:
     mode: HTML
     cache: false

@@ -15,7 +15,6 @@ public class Coffee {
     @GeneratedValue (
             strategy = GenerationType.TABLE,
             generator = "coffee_sequence"
-
     )
 
     @Column(name = "CoffeeID", nullable = false)
@@ -27,13 +26,13 @@ public class Coffee {
     @Column(name = "coffee_price", nullable = false)
     private double coffeePrice;
     @Column(name = "coffee_quantity", nullable = false)
-    private double coffeeQuantity;
+    private int coffeeQuantity;
 
     //Overload Constructor
     public Coffee() {}
 
     //Constructor
-    public Coffee(String coffeeBrandC, String coffeeTypeC, double coffeePriceC, double coffeeQuantityC) {
+    public Coffee(String coffeeBrandC, String coffeeTypeC, double coffeePriceC, int coffeeQuantityC) {
         this.coffeeBrand = coffeeBrandC;
         this.coffeeType = coffeeTypeC;
         this.coffeePrice = coffeePriceC;
@@ -57,7 +56,7 @@ public class Coffee {
         return coffeePrice;
     }
 
-    public double getCoffeeQuantity() {
+    public int getCoffeeQuantity() {
         return coffeeQuantity;
     }
 
@@ -78,7 +77,7 @@ public class Coffee {
         coffeePrice = price;
     }
 
-    public void setCoffeeQuantity(double quantity) {
+    public void setCoffeeQuantity(int quantity) {
         coffeeQuantity = quantity;
     }
 

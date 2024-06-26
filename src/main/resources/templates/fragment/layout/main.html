@@ -5,7 +5,7 @@
     </div>
     <div class="mt-2 cardScrow">
         <div class="row g-2">
-            <div th:each="coffee : ${coffees}" class="col-3">
+            <div th:each="coffee : ${coffees}" class="col-lg-3 col-12">
                 <div class="card">
                     <img src="../images/coffee_logos/Cafe_Pele.png" class="card-img-top" alt="">
                     <div class="card-body">
@@ -86,12 +86,6 @@
                             <form action="/modifyCoffee" method="POST">
                                 <div class="modal-body">
                                     <div class="input-group mb-3">
-                                        <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg"
-                                            id="inputGroup-sizing-default">ID</span>
-                                        <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control"
-                                            th:value="${coffee.coffeeID}">
-                                    </div>
-                                    <div class="input-group mb-3">
                                         <span for="coffee-add-brand" class="input-group-text w-25 text-white inputBg"
                                             id="coffee-add-brand">Brand</span>
                                         <input type="text" name="coffeeBrand" id="coffee-add-brand"
@@ -112,7 +106,7 @@
                                     <div class="input-group mb-3">
                                         <span for="coffee-add-quantity" class="input-group-text w-25 text-white inputBg"
                                             id="coffee-add-quantity">Quantity</span>
-                                        <input type="text" name="coffeeQuantity" id="coffee-add-quantity"
+                                        <input type="number" name="coffeeQuantity" id="coffee-add-quantity"
                                             class="form-control" th:value="${coffee.coffeeQuantity}">
                                     </div>
                                 </div>

@@ -9,26 +9,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 @Controller
 public class CoffeeController {
 
-    @Autowired
     private final CoffeeService coffeeService;
 
     private String redirectIndex = "redirect:/api/coffee";
-
+    
+    @Autowired
     public CoffeeController(CoffeeService service) {
         this.coffeeService = service;
     }
 
     @GetMapping("/api/coffee")
-    public String getAllCoffees(Model model) {
-        List<Coffee> coffee = coffeeService.getAllCoffees();
+    public String getAllCoffees(Model model, @Param("search") String search) {
+        List<Coffee> coffee = coffeeService.getAllCoffees(search);
         model.addAttribute("coffees", coffee);
-
+        model.addAttribute("search", search);
         return "index";
     }
     

@@ -17,8 +17,21 @@ public class CoffeeService {
         this.coffeeRepository = repository;
     }
 
-    public List<Coffee> getAllCoffees() {
+    public List<Coffee> getAllCoffees(String search) {
+        if(search != null){
+            return coffeeRepository.search(search);
+        }
         return coffeeRepository.findAll();
+    }
+
+    public Coffee findCoffeByID(Coffee coffee) {
+        int coffeeID = coffee.getCoffeeID();
+
+        if(coffeeID <= 0) {
+            return null;
+        }
+
+        return coffeeRepository.findById(coffeeID).get();
     }
 
     public Coffee createNewCoffee(Coffee coffee) {
@@ -30,8 +43,8 @@ public class CoffeeService {
     }
 
     public Coffee updateCoffee(Coffee coffee) {
-        int coffeeID = coffee.getCoffeeID();
-        Coffee upCoffee = coffeeRepository.findById(coffeeID).orElseThrow(() -> new RuntimeException("Coffee not found"));
+        Coffee upCoffee = findCoffeByID(coffee);
+
         upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());
         upCoffee.setCoffeeType(coffee.getCoffeeType());
         upCoffee.setCoffeePrice(coffee.getCoffeePrice());
@@ -39,4 +52,11 @@ public class CoffeeService {
         
         return coffeeRepository.save(upCoffee);
     }
+
+    // public List<Coffee> searchCoffee(String search) {
+    //     if(search != null) {
+    //         return coffeeRepository.findAll(search);
+    //     }
+    //     return coffeeRepository.findAll();
+    // }
 }
