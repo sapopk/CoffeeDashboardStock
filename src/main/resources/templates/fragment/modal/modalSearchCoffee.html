@@ -5,7 +5,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-0">
-                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Search Coffee by Coffee Number or Name
+                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Search Coffee by Number or Brand
                 </h1>
                 <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -14,11 +14,11 @@
                     <div class="input-group mb-3">
                         <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg"
                             id="inputGroup-sizing-default">Search</span>
-                        <input type="text" name="search" id="search" class="form-control" th:value="${search}">
+                        <input type="text" name="search" id="search" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer border-0">
-                    <button type="submit" value="search" class="btn w-50 modalBtnYes">Search Coffee</button>
+                    <button type="submit" class="btn w-50 modalBtnYes">Search Coffee</button>
                     <button type="button" class="btn w-25 modalBtnCancel" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>

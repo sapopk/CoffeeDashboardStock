@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {
-    @Query("SELECT cof FROM Coffee cof WHERE CONCAT(cof.coffeeID, ' ', cof.coffeeBrand, ' ', cof.coffeeType, ' ', cof.coffeePrice, ' ', cof.coffeeQuantity) LIKE %:keyword%")
+    @Query("SELECT cof FROM Coffee cof WHERE CONCAT(cof.coffeeID, ' ', cof.coffeeBrand, ' ') LIKE %:keyword%")
     public List<Coffee> search(String keyword);
 }
