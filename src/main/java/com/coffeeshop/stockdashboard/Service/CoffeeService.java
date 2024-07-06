@@ -18,13 +18,25 @@ public class CoffeeService {
     }
 
     public List<Coffee> getAllCoffees(String search) {
+        int searchID;
+    
         if(search != null){
-            return coffeeRepository.search(search);
+            if(search.matches("\\d+")) {
+                try {
+                    searchID = Integer.valueOf(search);
+                    System.out.println("Converted Integer: " + searchID);
+                    return coffeeRepository.searchByID(searchID);
+                } catch (NumberFormatException nfe) {
+                    System.err.println("Invalid convertion");
+                }
+            } else {
+                return coffeeRepository.searchByBrand(search);
+            }
         }
         return coffeeRepository.findAll();
     }
 
-    public Coffee findCoffeByID(Coffee coffee) {
+    public Coffee findCoffeeByID(Coffee coffee) {
         int coffeeID = coffee.getCoffeeID();
 
         if(coffeeID <= 0) {
@@ -43,7 +55,7 @@ public class CoffeeService {
     }
 
     public Coffee updateCoffee(Coffee coffee) {
-        Coffee upCoffee = findCoffeByID(coffee);
+        Coffee upCoffee = findCoffeeByID(coffee);
 
         upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());
         upCoffee.setCoffeeType(coffee.getCoffeeType());
@@ -52,11 +64,4 @@ public class CoffeeService {
         
         return coffeeRepository.save(upCoffee);
     }
-
-    // public List<Coffee> searchCoffee(String search) {
-    //     if(search != null) {
-    //         return coffeeRepository.findAll(search);
-    //     }
-    //     return coffeeRepository.findAll();
-    // }
 }

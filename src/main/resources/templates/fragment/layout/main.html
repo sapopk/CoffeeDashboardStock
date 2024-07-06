@@ -1,9 +1,20 @@
 <!-- Main Content - Fragment -->
 <main th:fragment="main" class="col-xl-9" style="height: 100vh;">
-    <div class="main-content py-1 text-center">
-        <h1 class="fs-3 mt-2 text-uppercase mainHeader">Current in Stock</h1>
+    <div class="main-content py-1 d-flex justify-content-between align-content-center align-items-center">
+        <h1 class="fs-3 ps-1 mt-2 text-uppercase mainHeader border">Current in Stock</h1>
+
+        <div class="text-center dropdown pe-2 border">
+            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu dropdown-center" style="width: 30px;">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
+        </div>
+
     </div>
-    <div class="mt-2 cardScrow">
+    <div class="mt-2 cardScrow" style="height: 83.5vh;">
         <div class="row g-2">
             <div th:each="coffee : ${coffees}" class="col-lg-3 col-12">
                 <div class="card">
@@ -119,7 +130,6 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
     </div>
