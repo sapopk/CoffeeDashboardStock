@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class CoffeeController {
@@ -26,10 +28,35 @@ public class CoffeeController {
     }
 
     @GetMapping("/api/coffee")
-    public String getAllCoffees(Model model, @Param("search") String search) {
-        List<Coffee> coffee = coffeeService.getAllCoffees(search);
+    public String getAllCoffees(Model model,
+    @Param("search") String search, 
+    @Param("filter") String filter, 
+    @Param("direction") String direction) {
+        List<Coffee> coffee;
+
+        Map<String, String> sortOptions = new LinkedHashMap<>();
+        sortOptions.put("Number", "coffeeID");
+        sortOptions.put("Brand", "coffeeBrand");
+        sortOptions.put("Type", "coffeeType");
+        sortOptions.put("Price", "coffeePrice");
+        sortOptions.put("Quantity", "coffeeQuantity");
+
+        Map<String, String> sortDirection = new LinkedHashMap<>();
+        sortDirection.put("Ascending", "ASC");
+        sortDirection.put("Descending", "DESC");
+
+        System.out.println("Filter Name: " +filter);
+        System.out.println("Sort Direction: " +direction);
+
+        if(filter != null) {
+            coffee = coffeeService.filterByTopicAndSortByAscOrDesc(filter, direction);
+        } else {
+            coffee = coffeeService.getAllCoffees(search);
+        }
+
+        model.addAttribute("sortOptions", sortOptions);
+        model.addAttribute("sortDirection", sortDirection);
         model.addAttribute("coffees", coffee);
-        model.addAttribute("search", search);
         return "index";
     }
     

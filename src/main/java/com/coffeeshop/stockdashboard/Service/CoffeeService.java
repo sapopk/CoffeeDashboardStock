@@ -4,6 +4,7 @@ import com.coffeeshop.stockdashboard.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -18,13 +19,25 @@ public class CoffeeService {
     }
 
     public List<Coffee> getAllCoffees(String search) {
+        if(search != null) {
+            return getSearchCoffeeByIdOrBrand(search);
+        }
+        return coffeeRepository.findAll();
+    }
+
+    public List<Coffee> filterByTopicAndSortByAscOrDesc(String filter, String direction) {
+        String sortBy = (filter == null || filter.isEmpty()) ? "coffeeID" : filter;
+        Sort.Direction sortDirection = "DESC".equalsIgnoreCase(direction) ? Sort.Direction.DESC : Sort.Direction.ASC;
+        return coffeeRepository.findAll(Sort.by(sortDirection, sortBy));
+    }
+
+    public List<Coffee> getSearchCoffeeByIdOrBrand(String search) {
         int searchID;
     
         if(search != null){
             if(search.matches("\\d+")) {
                 try {
                     searchID = Integer.valueOf(search);
-                    System.out.println("Converted Integer: " + searchID);
                     return coffeeRepository.searchByID(searchID);
                 } catch (NumberFormatException nfe) {
                     System.err.println("Invalid convertion");
@@ -32,8 +45,8 @@ public class CoffeeService {
             } else {
                 return coffeeRepository.searchByBrand(search);
             }
-        }
-        return coffeeRepository.findAll();
+        } 
+        return null;
     }
 
     public Coffee findCoffeeByID(Coffee coffee) {
