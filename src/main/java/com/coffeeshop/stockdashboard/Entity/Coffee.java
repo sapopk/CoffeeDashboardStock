@@ -62,23 +62,23 @@ public class Coffee {
 
     //Setters
     public void setCoffeeID(int id) {
-        coffeeID = id;
+        this.coffeeID = id;
     }
 
     public void setCoffeeBrand(String brand) {
-        coffeeBrand = brand;
+        this.coffeeBrand = brand;
     }
 
     public void setCoffeeType(String type) {
-        coffeeType = type;
+        this.coffeeType = type;
     }
 
     public void setCoffeePrice(double price) {
-        coffeePrice = price;
+        this.coffeePrice = price;
     }
 
     public void setCoffeeQuantity(int quantity) {
-        coffeeQuantity = quantity;
+        this.coffeeQuantity = quantity;
     }
 
     @Override

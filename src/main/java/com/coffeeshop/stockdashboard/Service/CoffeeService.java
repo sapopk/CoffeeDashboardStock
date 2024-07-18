@@ -68,6 +68,7 @@ public class CoffeeService {
     }
 
     public Coffee updateCoffee(Coffee coffee) {
+        System.out.println(coffee);
         Coffee upCoffee = findCoffeeByID(coffee);
 
         upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());

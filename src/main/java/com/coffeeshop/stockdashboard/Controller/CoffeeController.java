@@ -45,9 +45,6 @@ public class CoffeeController {
         sortDirection.put("Ascending", "ASC");
         sortDirection.put("Descending", "DESC");
 
-        System.out.println("Filter Name: " +filter);
-        System.out.println("Sort Direction: " +direction);
-
         if(filter != null) {
             coffee = coffeeService.filterByTopicAndSortByAscOrDesc(filter, direction);
         } else {
@@ -63,21 +60,18 @@ public class CoffeeController {
     @PostMapping("/addCoffee")
     public String addNewCoffee(@ModelAttribute Coffee newCoffee) {
         coffeeService.createNewCoffee(newCoffee);
-
         return redirectIndex;
     }
 
     @PostMapping("/removeCoffee") 
     public String removeCoffee(Integer coffeeID) {
         coffeeService.deleteCoffee(coffeeID);
-
         return redirectIndex;
     }
 
     @PostMapping("/modifyCoffee")
     public String modifyCoffee(Coffee coffee) {
         coffeeService.updateCoffee(coffee);
-
         return redirectIndex;
     }
 }

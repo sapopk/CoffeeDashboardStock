@@ -5,33 +5,39 @@
 
         <div class="me-2">
             <div class="btn-group dropdown">
-                <button class=" rounded-0 btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100px;">
-                  Sort By
+                <button class=" rounded-0 btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width: 100px;">
+                    Sort By
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li th:each="direction : ${sortDirection}">
-                        <a class="dropdown-item" th:href="@{/api/coffee(filter=${param.filter}, direction=${direction.value})}" th:text="${direction.key}"></a>
+                        <a class="dropdown-item"
+                            th:href="@{/api/coffee(filter=${param.filter}, direction=${direction.value})}"
+                            th:text="${direction.key}"></a>
                     </li>
                 </ul>
 
-                <button class=" rounded-0 btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100px;">
-                  Filter By
+                <button class=" rounded-0 btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="width: 100px;">
+                    Filter By
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li th:each="option : ${sortOptions}">
-                        <a class="dropdown-item" th:href="@{/api/coffee(filter=${option.value}, direction=${param.direction})}" th:text="${option.key}"></a>
+                        <a class="dropdown-item"
+                            th:href="@{/api/coffee(filter=${option.value}, direction=${param.direction})}"
+                            th:text="${option.key}"></a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    
+
     <div class="mt-2 cardScrow" style="height: 83.5vh;">
         <div class="row g-2">
             <div th:each="coffee : ${coffees}" class="col-lg-3 col-12">
                 <div class="card">
                     <img src="../images/coffee_logos/Cafe_Pele.png" class="card-img-top" alt="">
-                    <div class="card-body"> 
+                    <div class="card-body">
                         <div class="float-end" style="margin-top: -2rem;">
                             <a class="btn btn-sm bg-opacity-75 bg-light" data-bs-toggle="modal"
                                 th:attr="data-bs-target='#ModifyCoffee' + ${coffee.coffeeID}"
@@ -70,78 +76,11 @@
                     </div>
                 </div>
 
-                <!-- Modal Section - Remove Coffee -->
-                <section class="modal fade" th:id="'RemoveCoffee' + ${coffee.coffeeID}">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header border-0">
-                                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Remove Coffee</h1>
-                                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <form class="" action="/removeCoffee" method="POST">
-                                <div class="modal-body">
-                                    <p class="text-light">Are you sure you want to remove the coffee : </p>
-                                    <h1 class="text-white text-center" th:text="${coffee.coffeeBrand}"></h1>
-                                    <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control"
-                                        th:value="${coffee.coffeeID}" style="display: none;">
-                                </div>
-                                <div class="modal-footer border-0">
-                                    <button type="submit" name="coffeeID" class="btn w-50 modalBtnYes">Remove
-                                        Coffee</button>
-                                    <button type="button" class="btn w-25 modalBtnCancel"
-                                        data-bs-dismiss="modal">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                <!-- Icon Modal Section - Remove Coffee-->
+                <section th:replace="~{fragment/modal/iconModal/iconRemoveCoffee :: iconRemoveCoffee}"></section>
 
-                <!-- Modal Section - Modify Coffee -->
-                <section class="modal fade" th:id="'ModifyCoffee' + ${coffee.coffeeID}">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header border-0">
-                                <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Modify Coffee by ID</h1>
-                                <button type="button" class="btn-close bg-white" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <form action="/modifyCoffee" method="POST">
-                                <div class="modal-body">
-                                    <div class="input-group mb-3">
-                                        <span for="coffee-add-brand" class="input-group-text w-25 text-white inputBg"
-                                            id="coffee-add-brand">Brand</span>
-                                        <input type="text" name="coffeeBrand" id="coffee-add-brand"
-                                            class="form-control border" th:value="${coffee.coffeeBrand}">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <span for="coffee-add-type" class="input-group-text w-25 text-white inputBg"
-                                            id="coffee-add-type">Type</span>
-                                        <input type="text" name="coffeeType" id="coffee-add-type" class="form-control"
-                                            th:value="${coffee.coffeeType}">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <span for="coffee-add-price" class="input-group-text w-25 text-white inputBg"
-                                            id="coffee-add-price">Price</span>
-                                        <input type="text" name="coffeePrice" id="coffee-add-price" class="form-control"
-                                            th:value="${coffee.coffeePrice}">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <span for="coffee-add-quantity" class="input-group-text w-25 text-white inputBg"
-                                            id="coffee-add-quantity">Quantity</span>
-                                        <input type="number" name="coffeeQuantity" id="coffee-add-quantity"
-                                            class="form-control" th:value="${coffee.coffeeQuantity}">
-                                    </div>
-                                </div>
-                                <div class="modal-footer border-0">
-                                    <button type="submit" class="btn w-50 modalBtnYes">Modify Coffee</button>
-                                    <button type="button" class="btn w-25 modalBtnCancel"
-                                        data-bs-dismiss="modal">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                <!-- Icon Modal Section - Modify Coffee-->
+                <section th:replace="~{fragment/modal/iconModal/iconModifyCoffee :: iconModifyCoffee}"></section>
             </div>
         </div>
     </div>
