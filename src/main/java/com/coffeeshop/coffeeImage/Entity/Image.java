@@ -55,6 +55,19 @@ public class Image {
     @JoinColumn(name = "image_coffee_ID", unique = true)
     private Coffee coffee;
 
+    //Overload Constructor
+    public Image() {}
+
+    public Image(Blob imageC, String brandC, String typeC, Integer sizeC, LocalDateTime dateC, Coffee coffeeC) {
+        this.image = imageC;
+        this.imageNameBrand = brandC;
+        this.imageType = typeC;
+        this.imageSize = sizeC;
+        this.imageDate = dateC;
+        this.coffee = coffeeC;
+    }
+
+    //Getters
     public int getImageID() {
         return imageID;
     }
@@ -83,6 +96,7 @@ public class Image {
         return coffee;
     }
 
+    //Setters
     public void setImageID(int ID) {
         this.imageID = ID;
     }

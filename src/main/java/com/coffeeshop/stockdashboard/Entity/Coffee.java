@@ -17,14 +17,18 @@ public class Coffee {
         generator = "coffee_sequence"
     )
 
-    @Column(name = "CoffeeID", nullable = false)
+    @Column(name = "coffeeID", nullable = false)
     private int coffeeID;
+
     @Column(name = "coffee_brand", nullable = false)
     private String coffeeBrand;
+
     @Column(name = "coffee_type", nullable = false)
     private String coffeeType;
+
     @Column(name = "coffee_price", nullable = false)
     private double coffeePrice;
+
     @Column(name = "coffee_quantity", nullable = false)
     private int coffeeQuantity;
 
@@ -32,11 +36,11 @@ public class Coffee {
     public Coffee() {}
 
     //Constructor
-    public Coffee(String coffeeBrandC, String coffeeTypeC, double coffeePriceC, int coffeeQuantityC) {
-        this.coffeeBrand = coffeeBrandC;
-        this.coffeeType = coffeeTypeC;
-        this.coffeePrice = coffeePriceC;
-        this.coffeeQuantity = coffeeQuantityC;
+    public Coffee(String brandC, String typeC, double priceC, int quantityC) {
+        this.coffeeBrand = brandC;
+        this.coffeeType = typeC;
+        this.coffeePrice = priceC;
+        this.coffeeQuantity = quantityC;
     }
 
     //Getters
