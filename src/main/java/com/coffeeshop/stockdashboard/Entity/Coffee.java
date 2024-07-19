@@ -8,13 +8,13 @@ public class Coffee {
 
     @Id
     @SequenceGenerator(
-            name = "coffee_sequence",
-            sequenceName = "coffee_sequence",
-            allocationSize = 1
+        name = "coffee_sequence",
+        sequenceName = "coffee_sequence",
+        allocationSize = 1
     )
     @GeneratedValue (
-            strategy = GenerationType.TABLE,
-            generator = "coffee_sequence"
+        strategy = GenerationType.TABLE,
+        generator = "coffee_sequence"
     )
 
     @Column(name = "CoffeeID", nullable = false)
