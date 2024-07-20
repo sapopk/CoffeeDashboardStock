@@ -1,12 +1,12 @@
-package com.coffeeshop.stockdashboard.Repository;
-
-import com.coffeeshop.stockdashboard.Entity.Coffee;
+package com.coffeeshop.stockdashboard.Coffee.Repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
 
 @Repository
 public interface CoffeeRepository extends JpaRepository<Coffee, Integer> {

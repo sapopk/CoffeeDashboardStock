@@ -1,7 +1,8 @@
-package com.coffeeshop.stockdashboard.Service;
+package com.coffeeshop.stockdashboard.Coffee.Service;
 
-import com.coffeeshop.stockdashboard.Entity.Coffee;
-import com.coffeeshop.stockdashboard.Repository.CoffeeRepository;
+import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
+import com.coffeeshop.stockdashboard.Coffee.Repository.CoffeeRepository;
+
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

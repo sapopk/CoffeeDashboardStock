@@ -1,3 +1,4 @@
+package com.coffeeshop.stockdashboard.Coffee.Config;
 // package com.coffeeshop.stockdashboard.Config;
 
 // import com.coffeeshop.stockdashboard.Entity.Coffee;

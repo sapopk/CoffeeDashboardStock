@@ -1,7 +1,7 @@
-package com.coffeeshop.stockdashboard.Controller;
+package com.coffeeshop.stockdashboard.Coffee.Controller;
 
-import com.coffeeshop.stockdashboard.Entity.Coffee;
-import com.coffeeshop.stockdashboard.Service.CoffeeService;
+import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
+import com.coffeeshop.stockdashboard.Coffee.Service.CoffeeService;
 
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;

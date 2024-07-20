@@ -1,4 +1,6 @@
-package com.coffeeshop.stockdashboard.Entity;
+package com.coffeeshop.stockdashboard.Coffee.Entity;
+
+import com.coffeeshop.stockdashboard.Image.Entity.Image;
 
 import jakarta.persistence.*;
 
@@ -32,6 +34,10 @@ public class Coffee {
     @Column(name = "coffee_quantity", nullable = false)
     private int coffeeQuantity;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "imageID")
+    private Image image;
+
     //Overload Constructor
     public Coffee() {}
 
@@ -64,6 +70,10 @@ public class Coffee {
         return coffeeQuantity;
     }
 
+    public Image getImage() {
+        return image;
+    }
+
     //Setters
     public void setCoffeeID(int id) {
         this.coffeeID = id;
@@ -85,15 +95,7 @@ public class Coffee {
         this.coffeeQuantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return
-                "Coffee{" +
-                        "CoffeeID=" + coffeeID +
-                        ", CoffeeBrand='" + coffeeBrand + '\'' +
-                        ", CoffeeType='" + coffeeType + '\'' +
-                        ", CoffeePrice=" + coffeePrice +
-                        ", CoffeeQuantity=" + coffeeQuantity +
-                        '}';
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

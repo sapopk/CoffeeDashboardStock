@@ -1,24 +1,14 @@
-package com.coffeeshop.coffeeImage.Entity;
+package com.coffeeshop.stockdashboard.Image.Entity;
 
 import java.sql.Blob;
 import java.time.LocalDateTime;
 
-import com.coffeeshop.stockdashboard.Entity.Coffee;
+import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "coffeeImage", schema = "coffeeshop")
+@Table(name = "coffee_image", schema = "coffeeshop")
 public class Image {
 
     @Id
@@ -28,8 +18,8 @@ public class Image {
         allocationSize = 1
     )
     @GeneratedValue(
-        strategy = GenerationType.IDENTITY, 
-        generator = "iamge_sequence"
+        strategy = GenerationType.TABLE, 
+        generator = "image_sequence"
     )
 
     @Column(name = "imageID", nullable = false)
@@ -51,8 +41,8 @@ public class Image {
     @Column(name = "image_upload_date", nullable = false)
     private LocalDateTime imageDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "image_coffee_ID", unique = true)
+    @OneToOne(mappedBy = "image")
+    @JoinColumn(name = "coffeeID")
     private Coffee coffee;
 
     //Overload Constructor
