@@ -16,7 +16,11 @@ public class ImageService {
         this.imageRepository = repository;
     }
 
-    public Image create(Image image){
+    public Image saveImage(Image image){
         return imageRepository.save(image);
+    }
+
+    public Image viewImageById(int id) {
+        return imageRepository.findById(id).get();
     }
 }

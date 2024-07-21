@@ -177,4 +177,10 @@ body {
 .card-text {
     color: var(--white);
 }
+
+.card-img-top {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
 /* Card - Section */

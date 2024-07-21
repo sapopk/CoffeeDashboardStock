@@ -36,7 +36,7 @@
         <div class="row g-2">
             <div th:each="coffee : ${coffees}" class="col-lg-3 col-12">
                 <div class="card">
-                    <img src="../images/coffee_logos/Cafe_Pele.png" class="card-img-top" alt="">
+                    <img th:src="@{${'/display?imageID=' + coffee.image.imageID}}" class="card-img-top" th:alt="${coffee.image.imageNameBrand}">
                     <div class="card-body">
                         <div class="float-end" style="margin-top: -2rem;">
                             <a class="btn btn-sm bg-opacity-75 bg-light" data-bs-toggle="modal"
