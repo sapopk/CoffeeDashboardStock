@@ -6,7 +6,7 @@
                 <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">Modify Coffee by ID</h1>
                 <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/modifyCoffee" method="POST">
+            <form action="/modifyCoffee" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="input-group mb-3">
                         <span for="coffee-modify-id" class="input-group-text w-25 text-white inputBg" id="inputGroup-sizing-default">Number</span>
@@ -28,6 +28,9 @@
                         <span for="coffee-add-quantity" class="input-group-text w-25 text-white inputBg"
                             id="coffee-add-quantity">Quantity</span>
                         <input type="number" name="coffeeQuantity" id="coffee-add-quantity" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" id="file" name="file" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer border-0">

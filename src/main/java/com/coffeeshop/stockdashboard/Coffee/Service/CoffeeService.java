@@ -71,20 +71,24 @@ public class CoffeeService {
         return coffeeRepository.findById(coffeeID).get();
     }
 
-    public Coffee createNewCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
+    private Image createImage(String coffeeBrand, MultipartFile file) throws IOException, SerialException, SQLException {
         Image image = new Image();
-
+        
         byte[] bytes = file.getBytes();
         Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
-
+        
         image.setImage(blob);
-        image.setImageNameBrand(coffee.getCoffeeBrand());
+        image.setImageNameBrand(coffeeBrand);
         image.setImageType(file.getContentType());
         image.setImageSize((int) file.getSize());
         image.setImageDate(LocalDateTime.now());
+        
+        return imageService.saveImage(image);
+    }
 
-        Image savedImage = imageService.saveImage(image);
-        coffee.setImage(savedImage);
+    public Coffee createCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
+        Image image = createImage(coffee.getCoffeeBrand(), file);
+        coffee.setImage(image);
         return coffeeRepository.save(coffee);
     }
 
@@ -92,8 +96,10 @@ public class CoffeeService {
         coffeeRepository.deleteById(coffeeID);
     }
 
-    public Coffee updateCoffee(Coffee coffee) {
-        System.out.println(coffee);
+    public Coffee updateCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
+        Image image = createImage(coffee.getCoffeeBrand(), file);
+        coffee.setImage(image);
+        
         Coffee upCoffee = findCoffeeByID(coffee);
 
         upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());

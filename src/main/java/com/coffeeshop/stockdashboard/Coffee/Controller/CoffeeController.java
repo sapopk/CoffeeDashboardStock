@@ -2,7 +2,6 @@ package com.coffeeshop.stockdashboard.Coffee.Controller;
 
 import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Coffee.Service.CoffeeService;
-import com.coffeeshop.stockdashboard.Image.Entity.Image;
 import com.coffeeshop.stockdashboard.Image.Service.ImageService;
 
 import org.springframework.ui.Model;
@@ -14,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
@@ -71,17 +69,14 @@ public class CoffeeController {
 
     @GetMapping("/display")
     public ResponseEntity<byte[]> displayImage(@RequestParam("imageID") int imageID) throws IOException, SQLException {
-        Image image = imageService.viewImageById(imageID);
-        byte [] imageBytes = null;
-        imageBytes = image.getImage().getBytes(1,(int)image.getImage().length());
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getImageType())).body(imageBytes);
+        return imageService.displayImage(imageID);
     }
     
     @PostMapping("/addCoffee")
     public String addNewCoffee(
     @ModelAttribute Coffee coffee, 
     MultipartFile file) throws SerialException, IOException, SQLException {
-        coffeeService.createNewCoffee(coffee, file);
+        coffeeService.createCoffee(coffee, file);
         return redirectIndex;
     }
 
@@ -93,8 +88,8 @@ public class CoffeeController {
     }
 
     @PostMapping("/modifyCoffee")
-    public String modifyCoffee(Coffee coffee) {
-        coffeeService.updateCoffee(coffee);
+    public String modifyCoffee(Coffee coffee, MultipartFile file) throws SerialException, IOException, SQLException {
+        coffeeService.updateCoffee(coffee, file);
         return redirectIndex;
     }
 }
