@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
 @Service
@@ -97,15 +98,30 @@ public class CoffeeService {
     }
 
     public Coffee updateCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
-        Image image = createImage(coffee.getCoffeeBrand(), file);
-        coffee.setImage(image);
-        
         Coffee upCoffee = findCoffeeByID(coffee);
 
         upCoffee.setCoffeeBrand(coffee.getCoffeeBrand());
         upCoffee.setCoffeeType(coffee.getCoffeeType());
         upCoffee.setCoffeePrice(coffee.getCoffeePrice());
         upCoffee.setCoffeeQuantity(coffee.getCoffeeQuantity());
+
+        Image image = coffee.getImage();
+        if(image == null) {
+            image = new Image();
+        }
+        
+        byte[] bytes = file.getBytes();
+        Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+
+        image.setImage(blob);
+        image.setImageNameBrand(file.getOriginalFilename());
+        image.setImageType(file.getContentType());
+        image.setImageSize((int) file.getSize());
+        image.setImageDate(LocalDateTime.now());
+
+        Image updatedImage = imageService.saveImage(image);
+
+        upCoffee.setImage(updatedImage);
         
         return coffeeRepository.save(upCoffee);
     }

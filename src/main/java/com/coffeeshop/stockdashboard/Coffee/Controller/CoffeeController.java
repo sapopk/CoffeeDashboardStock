@@ -2,6 +2,7 @@ package com.coffeeshop.stockdashboard.Coffee.Controller;
 
 import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Coffee.Service.CoffeeService;
+import com.coffeeshop.stockdashboard.Image.Entity.Image;
 import com.coffeeshop.stockdashboard.Image.Service.ImageService;
 
 import org.springframework.ui.Model;
@@ -17,10 +18,12 @@ import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
 @Controller
@@ -68,7 +71,7 @@ public class CoffeeController {
     }
 
     @GetMapping("/display")
-    public ResponseEntity<byte[]> displayImage(@RequestParam("imageID") int imageID) throws IOException, SQLException {
+    public ResponseEntity<byte[]> displayImage(@Param("imageID") int imageID) throws IOException, SQLException {
         return imageService.displayImage(imageID);
     }
     

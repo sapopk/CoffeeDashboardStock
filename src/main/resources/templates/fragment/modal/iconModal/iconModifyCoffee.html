@@ -32,6 +32,9 @@
                         <input type="number" name="coffeeQuantity" id="coffee-add-quantity" class="form-control"
                             th:value="${coffee.coffeeQuantity}">
                     </div>
+                    <div class="input-group mb-3">
+                        <input type="file" id="file" name="file" class="form-control">
+                    </div>
                 </div>
                 <div class="modal-footer border-0">
                     <input type="text" name="coffeeID" id="coffee-modify-id" class="form-control" th:value="${coffee.coffeeID}" style="display: none;">
