@@ -18,9 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import java.io.IOException;
-import java.sql.Blob;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,28 +73,15 @@ public class CoffeeController {
     public ResponseEntity<byte[]> displayImage(@RequestParam("imageID") int imageID) throws IOException, SQLException {
         Image image = imageService.viewImageById(imageID);
         byte [] imageBytes = null;
-        imageBytes = image.getImage().getBytes(1,(int) image.getImage().length());
+        imageBytes = image.getImage().getBytes(1,(int)image.getImage().length());
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(image.getImageType())).body(imageBytes);
     }
     
     @PostMapping("/addCoffee")
     public String addNewCoffee(
-    @ModelAttribute Coffee newCoffee, 
-    MultipartFile file) throws IOException, SerialException, SQLException {
-        Image image = new Image();
-
-        byte[] bytes = file.getBytes();
-        Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
-
-        image.setImage(blob);
-        image.setImageNameBrand(newCoffee.getCoffeeBrand());
-        image.setImageType(file.getContentType());
-        image.setImageSize((int) file.getSize());
-        image.setImageDate(LocalDateTime.now());
-
-        Image savedImage = imageService.saveImage(image);
-        newCoffee.setImage(savedImage);
-        coffeeService.createNewCoffee(newCoffee);
+    @ModelAttribute Coffee coffee, 
+    MultipartFile file) throws SerialException, IOException, SQLException {
+        coffeeService.createNewCoffee(coffee, file);
         return redirectIndex;
     }
 

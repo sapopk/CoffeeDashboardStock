@@ -2,21 +2,32 @@ package com.coffeeshop.stockdashboard.Coffee.Service;
 
 import com.coffeeshop.stockdashboard.Coffee.Entity.Coffee;
 import com.coffeeshop.stockdashboard.Coffee.Repository.CoffeeRepository;
+import com.coffeeshop.stockdashboard.Image.Entity.Image;
+import com.coffeeshop.stockdashboard.Image.Service.ImageService;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
+
+import javax.sql.rowset.serial.SerialException;
 
 @Service
 public class CoffeeService {
 
     private final CoffeeRepository coffeeRepository;
+    private final ImageService imageService;
 
     @Autowired
-    public CoffeeService(CoffeeRepository repository) {
+    public CoffeeService(CoffeeRepository repository, ImageService service) {
         this.coffeeRepository = repository;
+        this.imageService = service;
     }
 
     public List<Coffee> getAllCoffees(String search) {
@@ -60,7 +71,20 @@ public class CoffeeService {
         return coffeeRepository.findById(coffeeID).get();
     }
 
-    public Coffee createNewCoffee(Coffee coffee) {
+    public Coffee createNewCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
+        Image image = new Image();
+
+        byte[] bytes = file.getBytes();
+        Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+
+        image.setImage(blob);
+        image.setImageNameBrand(coffee.getCoffeeBrand());
+        image.setImageType(file.getContentType());
+        image.setImageSize((int) file.getSize());
+        image.setImageDate(LocalDateTime.now());
+
+        Image savedImage = imageService.saveImage(image);
+        coffee.setImage(savedImage);
         return coffeeRepository.save(coffee);
     }
 
