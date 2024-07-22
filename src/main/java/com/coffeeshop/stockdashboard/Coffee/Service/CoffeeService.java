@@ -72,14 +72,17 @@ public class CoffeeService {
         return coffeeRepository.findById(coffeeID).get();
     }
 
-    private Image createImage(String coffeeBrand, MultipartFile file) throws IOException, SerialException, SQLException {
-        Image image = new Image();
+    private Image createImage(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
+        Image image = coffee.getImage();
+        if(image == null) {
+            image = new Image();
+        }
         
         byte[] bytes = file.getBytes();
         Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
         
         image.setImage(blob);
-        image.setImageNameBrand(coffeeBrand);
+        image.setImageNameBrand(coffee.getCoffeeBrand());
         image.setImageType(file.getContentType());
         image.setImageSize((int) file.getSize());
         image.setImageDate(LocalDateTime.now());
@@ -88,7 +91,7 @@ public class CoffeeService {
     }
 
     public Coffee createCoffee(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
-        Image image = createImage(coffee.getCoffeeBrand(), file);
+        Image image = createImage(coffee, file);
         coffee.setImage(image);
         return coffeeRepository.save(coffee);
     }
@@ -105,23 +108,9 @@ public class CoffeeService {
         upCoffee.setCoffeePrice(coffee.getCoffeePrice());
         upCoffee.setCoffeeQuantity(coffee.getCoffeeQuantity());
 
-        Image image = coffee.getImage();
-        if(image == null) {
-            image = new Image();
-        }
-        
-        byte[] bytes = file.getBytes();
-        Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
+        Image image = imageService.saveImage(createImage(upCoffee, file));
 
-        image.setImage(blob);
-        image.setImageNameBrand(file.getOriginalFilename());
-        image.setImageType(file.getContentType());
-        image.setImageSize((int) file.getSize());
-        image.setImageDate(LocalDateTime.now());
-
-        Image updatedImage = imageService.saveImage(image);
-
-        upCoffee.setImage(updatedImage);
+        upCoffee.setImage(image);
         
         return coffeeRepository.save(upCoffee);
     }
