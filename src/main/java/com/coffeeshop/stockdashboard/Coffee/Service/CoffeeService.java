@@ -73,20 +73,28 @@ public class CoffeeService {
     }
 
     private Image createImage(Coffee coffee, MultipartFile file) throws IOException, SerialException, SQLException {
-        Image image = coffee.getImage();
-        if(image == null) {
-            image = new Image();
+        if (file.isEmpty()) {
+            if (coffee.getImage() != null) {
+                return coffee.getImage();
+            }
+            return null;
         }
-        
+    
+        Image image = coffee.getImage();
+        if (image == null) {
+            image = new Image();
+            coffee.setImage(image);
+        }
+    
         byte[] bytes = file.getBytes();
         Blob blob = new javax.sql.rowset.serial.SerialBlob(bytes);
-        
+    
         image.setImage(blob);
         image.setImageNameBrand(coffee.getCoffeeBrand());
         image.setImageType(file.getContentType());
         image.setImageSize((int) file.getSize());
         image.setImageDate(LocalDateTime.now());
-        
+    
         return imageService.saveImage(image);
     }
 

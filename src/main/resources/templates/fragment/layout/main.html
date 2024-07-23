@@ -36,7 +36,18 @@
         <div class="row g-2">
             <div th:each="coffee : ${coffees}" class="col-lg-3 col-12">
                 <div class="card">
-                    <img th:src="@{${'/display?imageID=' + coffee.image.imageID}}" class="card-img-top" th:alt="${coffee.image.imageNameBrand}">
+
+                    <div th:if="${coffee.image != null}">
+                        <div th:if="${coffee.image.imageID != null}">
+                            <img th:src="@{${'/display?imageID=' + coffee.image.imageID}}" class="card-img-top">
+                        </div>
+                    </div>
+                    <div th:if="${coffee.image == null}">
+                        <div class="card-img-top justify-content-center align-content-center text-white">
+                            <p class="text-center img-letter" th:text="${coffee.coffeeBrand.substring(0, 1).toUpperCase()}"></p>
+                        </div>
+                    </div>                    
+
                     <div class="card-body">
                         <div class="float-end" style="margin-top: -2rem;">
                             <a class="btn btn-sm bg-opacity-75 bg-light" data-bs-toggle="modal"

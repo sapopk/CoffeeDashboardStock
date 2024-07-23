@@ -82,8 +82,7 @@ public class CoffeeController {
         coffeeService.createCoffee(coffee, file);
         return redirectIndex;
     }
-
-
+    
     @PostMapping("/removeCoffee") 
     public String removeCoffee(Integer coffeeID) {
         coffeeService.deleteCoffee(coffeeID);

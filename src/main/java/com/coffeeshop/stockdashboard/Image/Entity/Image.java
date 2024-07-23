@@ -22,14 +22,14 @@ public class Image {
         generator = "image_sequence"
     )
 
-    @Column(name = "imageID", nullable = false)
+    @Column(name = "imageID")
     private int imageID;
 
     @Lob
     @Column(name = "image_data")
     private Blob image;
 
-    @Column(name = "image_name_brand", nullable = false)
+    @Column(name = "image_name_brand")
     private String imageNameBrand;
 
     @Column(name = "image_type")
@@ -38,7 +38,7 @@ public class Image {
     @Column(name = "image_size")
     private Integer imageSize;
 
-    @Column(name = "image_upload_date", nullable = false)
+    @Column(name = "image_upload_date")
     private LocalDateTime imageDate;
 
     @OneToOne(mappedBy = "image")
