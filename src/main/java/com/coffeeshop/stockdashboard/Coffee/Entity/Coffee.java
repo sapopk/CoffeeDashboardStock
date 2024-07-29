@@ -4,6 +4,8 @@ import com.coffeeshop.stockdashboard.Image.Entity.Image;
 
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.*;
+
 @Entity
 @Table(name = "coffee", schema = "coffeeshop")
 public class Coffee {
@@ -22,15 +24,23 @@ public class Coffee {
     @Column(name = "coffeeID", nullable = false)
     private int coffeeID;
 
+    @NotNull
+    @Size(min = 1, max = 14, message = "Coffee's brand name must have min 1 & max 14 characters")
     @Column(name = "coffee_brand", nullable = false)
     private String coffeeBrand;
 
+    @NotNull
+    @Size(message = "Coffee's type name must have min 1 & max 14 characters")
     @Column(name = "coffee_type", nullable = false)
     private String coffeeType;
 
+    @NotNull
+    @Size(message = "Coffee's price must be clarified.")
     @Column(name = "coffee_price", nullable = false)
     private double coffeePrice;
 
+    @NotNull
+    @Size(min = 1, message = "Coffee's quantity cannot be empty.")
     @Column(name = "coffee_quantity", nullable = false)
     private int coffeeQuantity;
 
