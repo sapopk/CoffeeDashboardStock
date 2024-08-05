@@ -16,7 +16,6 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.sql.rowset.serial.SerialBlob;
 import javax.sql.rowset.serial.SerialException;
 
 @Service
