@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: #your db address
+    username: #your db username
+    password: #your db password (if applicable)
+    driver-class-name: #your db driver (mysql, postgresql etc)
+  thymeleaf:
+    mode: HTML
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+  application:
+    name: USER-SERVICE
+
+  logging:
+    level:
+      org.thymeleaf: DEBUG
+      org.thymeleaf.TemplateEngine: TRACE
